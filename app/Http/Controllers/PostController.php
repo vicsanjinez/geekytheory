@@ -159,8 +159,11 @@ class PostController extends Controller
             }
 
             $post->save();
-            $categories = Category::whereIn('id', $data['categories'])->get();
-            $post->categories()->sync($categories);
+
+			if (!empty($data['categories'])) {
+            	$categories = Category::whereIn('id', $data['categories'])->get();
+            	$post->categories()->sync($categories);
+			}
         }
 
         return array(
@@ -230,8 +233,11 @@ class PostController extends Controller
             }
 
             $post->save();
-            $categories = Category::whereIn('id', $data['categories'])->get();
-            $post->categories()->sync($categories);
+
+			if (!empty($data['categories'])) {
+            	$categories = Category::whereIn('id', $data['categories'])->get();
+            	$post->categories()->sync($categories);
+			}
         }
 
         return array(

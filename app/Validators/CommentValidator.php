@@ -13,8 +13,8 @@ class CommentValidator extends LaravelValidator implements ValidableInterface
     protected $rules = array(
         'post_id' => 'required',
         'author_name' => 'required|max:255',
-        'author_email' => 'required|max:255',
-        'author_url' => 'regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+        'author_email' => 'required|email|max:255',
+        'author_url' => 'url',
         'body' => 'required',
         'approved' => 'required',
         'spam' => 'required',
